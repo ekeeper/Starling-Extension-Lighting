@@ -46,7 +46,8 @@ package starling.extensions.lighting.core
 		}
 		
 		/**
-		 * override this method in a custom implementation to create more complex geometry
+		 * override this method in a custom implementation to create more complex geometry<br>
+     * 重写此方法创建一个定制的实现更复杂的几何
 		 */
 		protected function createEdges():Vector.<Edge>
 		{

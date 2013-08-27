@@ -12,7 +12,8 @@ package starling.extensions.lighting.core
 		public var endY:Number;
 		
 		/**
-		 * simple class to hold the start and end points of an edge used for shadow casting
+		 * simple class to hold the start and end points of an edge used for shadow casting<br>
+		 * 简单的类用于保存阴影投射边缘的起点和终点
 		 */
 		public function Edge(_startX:Number = 0, _startY:Number = 0, _endX:Number = 0, _endY:Number = 0)
 		{

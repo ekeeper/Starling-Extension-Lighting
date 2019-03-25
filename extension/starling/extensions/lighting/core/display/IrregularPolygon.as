@@ -114,7 +114,10 @@ package starling.extensions.lighting.core.display {
       support.applyBlendMode(false);
       context.setProgram(Starling.current.getProgram(PROGRAM_NAME));
       context.setVertexBufferAt(0, $vertexBuffer, VertexData.POSITION_OFFSET, Context3DVertexBufferFormat.FLOAT_2);
-      context.setVertexBufferAt(1, $vertexBuffer, VertexData.COLOR_OFFSET, Context3DVertexBufferFormat.BYTES_4);
+      // StarlingFramework 1.3
+      context.setVertexBufferAt(1, $vertexBuffer, VertexData.COLOR_OFFSET, Context3DVertexBufferFormat.FLOAT_4);
+      // update for StarlingFramework 1.4 rc1
+      //context.setVertexBufferAt(1, $vertexBuffer, VertexData.COLOR_OFFSET, Context3DVertexBufferFormat.BYTES_4);
       //context.setVertexBufferAt( 0, $vertexBuffer, 0, Context3DVertexBufferFormat.FLOAT_3 ); //va0 is position
       //context.setVertexBufferAt( 1, $vertexBuffer, 3, Context3DVertexBufferFormat.FLOAT_4 ); //va1 is color
       context.setProgramConstantsFromMatrix(Context3DProgramType.VERTEX, 0, support.mvpMatrix3D, true);
@@ -170,7 +173,10 @@ package starling.extensions.lighting.core.display {
         $indexBuffer.dispose();
       
       $vertexBuffer = context.createVertexBuffer($vertexData.numVertices, VertexData.ELEMENTS_PER_VERTEX);
-      $vertexBuffer.uploadFromByteArray($vertexData.rawData, 0, 0, $vertexData.numVertices);
+      // StarlingFramework 1.3
+      $vertexBuffer.uploadFromVector($vertexData.rawData, 0, $vertexData.numVertices);
+      // update for StarlingFramework 1.4 rc1
+      //$vertexBuffer.uploadFromByteArray($vertexData.rawData, 0, 0, $vertexData.numVertices);
       
       $indexBuffer = context.createIndexBuffer($indexData.length);
       $indexBuffer.uploadFromVector($indexData, 0, $indexData.length);
